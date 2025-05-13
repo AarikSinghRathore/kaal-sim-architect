@@ -7,6 +7,8 @@ import {
   Menu, 
   X, 
   ChevronRight,
+  Mountain,
+  Zap,
   LucideIcon
 } from 'lucide-react';
 
@@ -32,6 +34,8 @@ const Header = () => {
         <nav className="hidden md:flex items-center gap-6">
           <NavLink to="/" icon={Shield} label="Overview" />
           <NavLink to="/architecture" icon={ChevronRight} label="Architecture" />
+          <NavLink to="/feedback-system" icon={Zap} label="Feedback System" />
+          <NavLink to="/terrain-simulation" icon={Mountain} label="Terrain Engine" />
         </nav>
 
         {/* Mobile Menu Button */}
@@ -55,6 +59,11 @@ const Header = () => {
           <div className="container py-4 px-4 space-y-2">
             <MobileNavLink to="/" label="Overview" onClick={toggleMobileMenu} />
             <MobileNavLink to="/architecture" label="System Architecture" onClick={toggleMobileMenu} />
+            <MobileNavLink to="/feedback-system" label="Feedback System" onClick={toggleMobileMenu} />
+            <MobileNavLink to="/terrain-simulation" label="Terrain Engine" onClick={toggleMobileMenu} />
+            <MobileNavLink to="/technical" label="Technical Details" onClick={toggleMobileMenu} />
+            <MobileNavLink to="/safety" label="Safety Systems" onClick={toggleMobileMenu} />
+            <MobileNavLink to="/cost-comparison" label="Cost Comparison" onClick={toggleMobileMenu} />
           </div>
         </div>
       )}

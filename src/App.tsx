@@ -10,6 +10,8 @@ import NotFound from "./pages/NotFound";
 import Technical from "./pages/Technical";
 import Safety from "./pages/Safety";
 import CostComparison from "./pages/CostComparison";
+import FeedbackSystemDetails from "./pages/FeedbackSystemDetails";
+import TerrainSimulationDetails from "./pages/TerrainSimulationDetails";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +27,8 @@ const App = () => (
           <Route path="/technical" element={<Technical />} />
           <Route path="/safety" element={<Safety />} />
           <Route path="/cost-comparison" element={<CostComparison />} />
+          <Route path="/feedback-system" element={<FeedbackSystemDetails />} />
+          <Route path="/terrain-simulation" element={<TerrainSimulationDetails />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

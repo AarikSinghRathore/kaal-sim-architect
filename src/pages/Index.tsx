@@ -13,8 +13,9 @@ import {
   Download,
   FileText,
   Shield,
-  Mountain
-} from "lucide-react";
+  Mountain,
+  Zap
+} from 'lucide-react';
 
 const Index = () => {
   useEffect(() => {
@@ -44,7 +45,7 @@ const Index = () => {
           <div className="container max-w-5xl mx-auto">
             <h2 className="section-title mb-12">Explore KAAL In Depth</h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="kaal-card p-6 hover:border-kaal-blue/50 transition-colors flex flex-col">
                 <div className="mb-4 p-3 rounded-full bg-kaal-blue/20 text-kaal-blue self-start">
                   <Shield className="h-6 w-6" />
@@ -79,8 +80,21 @@ const Index = () => {
                 <p className="text-muted-foreground text-sm mb-6 flex-grow">
                   Learn about the advanced terrain engine that powers KAAL's immersive simulation environment.
                 </p>
-                <Link to="/technical" className="mt-auto">
-                  <Button className="w-full">Technical Details</Button>
+                <Link to="/terrain-simulation" className="mt-auto">
+                  <Button className="w-full">Terrain Details</Button>
+                </Link>
+              </div>
+              
+              <div className="kaal-card p-6 hover:border-kaal-red/50 transition-colors flex flex-col">
+                <div className="mb-4 p-3 rounded-full bg-kaal-red/20 text-kaal-red self-start">
+                  <Zap className="h-6 w-6" />
+                </div>
+                <h3 className="text-lg font-medium mb-2">Feedback System</h3>
+                <p className="text-muted-foreground text-sm mb-6 flex-grow">
+                  Discover how the tactile feedback system provides realistic training with precise control.
+                </p>
+                <Link to="/feedback-system" className="mt-auto">
+                  <Button className="w-full">Feedback Details</Button>
                 </Link>
               </div>
             </div>
