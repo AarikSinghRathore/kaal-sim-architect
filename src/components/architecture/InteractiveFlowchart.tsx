@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Node, ChevronDown } from 'lucide-react';
+import { CircleIcon, ChevronDown } from 'lucide-react';
 
 interface FlowchartNode {
   id: string;
@@ -21,7 +21,7 @@ const InteractiveFlowchart = () => {
       id: 'gun',
       title: 'Smart Gun Unit',
       description: 'IR/Laser emitter with signal modulation for target acquisition and damage parameters.',
-      icon: <Node className="h-5 w-5" />,
+      icon: <CircleIcon className="h-5 w-5" />,
       x: 15,
       y: 20,
       connections: ['signal'],
@@ -31,7 +31,7 @@ const InteractiveFlowchart = () => {
       id: 'signal',
       title: 'Signal Processing',
       description: 'Wireless transmission with encryption and reliable packet delivery logic.',
-      icon: <Node className="h-5 w-5" />,
+      icon: <CircleIcon className="h-5 w-5" />,
       x: 40,
       y: 20,
       connections: ['microcontroller'],
@@ -41,7 +41,7 @@ const InteractiveFlowchart = () => {
       id: 'microcontroller',
       title: 'Microcontroller',
       description: 'STM32/ESP32 processing unit handling signal decoding and suit response.',
-      icon: <Node className="h-5 w-5" />,
+      icon: <CircleIcon className="h-5 w-5" />,
       x: 65,
       y: 20,
       connections: ['suit'],
@@ -51,7 +51,7 @@ const InteractiveFlowchart = () => {
       id: 'suit',
       title: 'Feedback Suit',
       description: 'Conductive cloth with electrode zones providing targeted shock feedback.',
-      icon: <Node className="h-5 w-5" />,
+      icon: <CircleIcon className="h-5 w-5" />,
       x: 90,
       y: 20,
       connections: [],
@@ -61,7 +61,7 @@ const InteractiveFlowchart = () => {
       id: 'dem',
       title: 'DEM Data',
       description: 'Digital Elevation Model data sourced from high-resolution topographic surveys.',
-      icon: <Node className="h-5 w-5" />,
+      icon: <CircleIcon className="h-5 w-5" />,
       x: 15,
       y: 60,
       connections: ['qgis'],
@@ -71,7 +71,7 @@ const InteractiveFlowchart = () => {
       id: 'qgis',
       title: 'QGIS Processing',
       description: 'Geographic Information System processing for enhanced terrain fidelity.',
-      icon: <Node className="h-5 w-5" />,
+      icon: <CircleIcon className="h-5 w-5" />,
       x: 40,
       y: 60,
       connections: ['ue5'],
@@ -81,7 +81,7 @@ const InteractiveFlowchart = () => {
       id: 'ue5',
       title: 'UE5 (Cesium + Nanite)',
       description: 'Unreal Engine 5 with Cesium integration and Nanite micropolygon rendering.',
-      icon: <Node className="h-5 w-5" />,
+      icon: <CircleIcon className="h-5 w-5" />,
       x: 65,
       y: 60,
       connections: ['ledwall'],
@@ -91,7 +91,7 @@ const InteractiveFlowchart = () => {
       id: 'ledwall',
       title: 'LED Wall Display',
       description: 'High-resolution LED wall for immersive terrain visualization.',
-      icon: <Node className="h-5 w-5" />,
+      icon: <CircleIcon className="h-5 w-5" />,
       x: 90,
       y: 60,
       connections: [],

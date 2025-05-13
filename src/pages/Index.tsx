@@ -29,11 +29,7 @@ const Index = () => {
 
   return (
     <Layout 
-      heroTitle={
-        <>
-          Project <span className="text-kaal-green">KAAL</span>
-        </>
-      }
+      heroTitle="Project KAAL"
       heroSubtitle="India's Immersive Military Simulation System"
       heroBackground="from-kaal-navy via-kaal-navy/80 to-black"
       className="mb-10"

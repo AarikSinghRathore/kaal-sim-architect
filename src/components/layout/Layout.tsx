@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import { Button } from '@/components/ui/button';
-import { SwitchHorizontal } from 'lucide-react';
+import { ArrowRightLeft } from 'lucide-react';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -66,7 +66,7 @@ const Layout: React.FC<LayoutProps> = ({
             {showToggleButton && (
               <Link to={togglePath}>
                 <Button variant="outline" size="lg" className="border-kaal-blue hover:bg-kaal-blue/20">
-                  <SwitchHorizontal className="h-4 w-4 mr-2" />
+                  <ArrowRightLeft className="h-4 w-4 mr-2" />
                   {toggleText}
                 </Button>
               </Link>
