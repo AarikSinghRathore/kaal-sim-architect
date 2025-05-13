@@ -19,6 +19,8 @@ import EnvironmentalFX from "@/components/terrain/EnvironmentalFX";
 import DiagnosticsPanel from "@/components/terrain/DiagnosticsPanel";
 
 const TerrainSimulationDetails = () => {
+  const [isTechnicalView, setIsTechnicalView] = useState(true);
+
   return (
     <Layout 
       heroTitle="Terrain Simulation Technical Details" 
@@ -680,3 +682,5 @@ MicroDetailScale=1000.0`}
                         
                         {/* Video Processor */}
                         <rect x="490" y="200" width="180"
+
+</initial_code>
