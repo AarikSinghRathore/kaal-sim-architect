@@ -1,150 +1,70 @@
 
-import React, { useState } from 'react';
-import { Zap, Signal, Cpu, Shield } from 'lucide-react';
+import React from 'react';
+import { ArrowRight, Zap, Radio, CircuitBoard } from 'lucide-react';
 
 const FeedbackSystemFlowchart = () => {
-  const [activeNode, setActiveNode] = useState<string | null>(null);
-
-  const nodes = [
-    {
-      id: 'trigger',
-      title: 'Gun Trigger',
-      description: 'Hall-effect magnetic sensor with 1.5ms debounce logic',
-      icon: <Zap className="h-6 w-6" />,
-      color: 'blue',
-      latency: '1-3ms'
-    },
-    {
-      id: 'signal',
-      title: 'Signal Emission',
-      description: 'IR/RF transmission with encrypted data packets',
-      icon: <Signal className="h-6 w-6" />,
-      color: 'green',
-      latency: '5-15ms'
-    },
-    {
-      id: 'mcu',
-      title: 'MCU Processing',
-      description: 'ESP32/STM32 microcontroller with real-time processing',
-      icon: <Cpu className="h-6 w-6" />,
-      color: 'yellow',
-      latency: '3-6ms'
-    },
-    {
-      id: 'feedback',
-      title: 'Zoned Feedback',
-      description: 'Targeted electrode activation with variable intensity',
-      icon: <Shield className="h-6 w-6" />,
-      color: 'red',
-      latency: '2-5ms'
-    }
-  ];
-
   return (
-    <div className="relative">
-      {/* Flow Chart */}
-      <div className="relative h-64 border border-border rounded-lg bg-card/50 overflow-hidden p-4">
-        {/* Connection line */}
-        <svg className="absolute inset-0 w-full h-full pointer-events-none z-0">
-          <line
-            x1="12.5%"
-            y1="50%"
-            x2="37.5%"
-            y2="50%"
-            stroke="rgba(128, 128, 128, 0.5)"
-            strokeWidth="2"
-            strokeDasharray="5,5"
-          />
-          <line
-            x1="37.5%"
-            y1="50%"
-            x2="62.5%"
-            y2="50%"
-            stroke="rgba(128, 128, 128, 0.5)"
-            strokeWidth="2"
-            strokeDasharray="5,5"
-          />
-          <line
-            x1="62.5%"
-            y1="50%"
-            x2="87.5%"
-            y2="50%"
-            stroke="rgba(128, 128, 128, 0.5)"
-            strokeWidth="2"
-            strokeDasharray="5,5"
-          />
-        </svg>
-
-        {/* Flow nodes */}
-        <div className="flex justify-between items-center h-full relative z-10">
-          {nodes.map((node) => (
-            <NodeComponent
-              key={node.id}
-              node={node}
-              isActive={activeNode === node.id}
-              onClick={() => setActiveNode(activeNode === node.id ? null : node.id)}
+    <div className="w-full overflow-x-auto">
+      <div className="min-w-[600px] h-64 relative flex items-center justify-between px-8 py-4">
+        {/* Flow steps */}
+        <div className="absolute inset-0 pointer-events-none flex items-center justify-between px-16">
+          <svg className="w-full h-8" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <marker
+                id="arrowhead"
+                markerWidth="10"
+                markerHeight="7"
+                refX="0"
+                refY="3.5"
+                orient="auto"
+              >
+                <polygon points="0 0, 10 3.5, 0 7" fill="rgba(150, 150, 150, 0.8)" />
+              </marker>
+            </defs>
+            <line
+              x1="0%"
+              y1="50%"
+              x2="100%"
+              y2="50%"
+              stroke="rgba(150, 150, 150, 0.8)"
+              strokeWidth="2"
+              strokeDasharray="5,5"
+              markerEnd="url(#arrowhead)"
             />
-          ))}
+          </svg>
+        </div>
+
+        {/* Step 1 - Trigger */}
+        <div className="w-32 h-32 flex flex-col items-center justify-center rounded-lg bg-kaal-blue/20 border-2 border-kaal-blue z-10">
+          <Zap className="h-8 w-8 text-kaal-blue mb-2" />
+          <div className="text-sm font-medium text-center">Trigger</div>
+          <div className="text-xs text-muted-foreground mt-1 text-center">1-3ms</div>
+        </div>
+
+        {/* Step 2 - Gun MCU */}
+        <div className="w-32 h-32 flex flex-col items-center justify-center rounded-lg bg-muted/20 border border-muted z-10">
+          <Radio className="h-8 w-8 text-kaal-green mb-2" />
+          <div className="text-sm font-medium text-center">IR Signal</div>
+          <div className="text-xs text-muted-foreground mt-1 text-center">5-15ms</div>
+        </div>
+
+        {/* Step 3 - Suit Receiver */}
+        <div className="w-32 h-32 flex flex-col items-center justify-center rounded-lg bg-muted/20 border border-muted z-10">
+          <Radio className="h-8 w-8 text-kaal-yellow mb-2" />
+          <div className="text-sm font-medium text-center">Processing</div>
+          <div className="text-xs text-muted-foreground mt-1 text-center">3-6ms</div>
+        </div>
+
+        {/* Step 4 - Electrodes */}
+        <div className="w-32 h-32 flex flex-col items-center justify-center rounded-lg bg-muted/20 border border-muted z-10">
+          <CircuitBoard className="h-8 w-8 text-kaal-red mb-2" />
+          <div className="text-sm font-medium text-center">Feedback</div>
+          <div className="text-xs text-muted-foreground mt-1 text-center">2-5ms</div>
         </div>
       </div>
 
-      {/* Node details panel */}
-      <div className="mt-4">
-        {activeNode ? (
-          <NodeDetails node={nodes.find(n => n.id === activeNode)!} />
-        ) : (
-          <div className="text-center text-sm text-muted-foreground p-4 border border-dashed border-border rounded-md">
-            Click on any node above to see detailed information
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
-
-interface Node {
-  id: string;
-  title: string;
-  description: string;
-  icon: React.ReactNode;
-  color: string;
-  latency: string;
-}
-
-const NodeComponent: React.FC<{
-  node: Node;
-  isActive: boolean;
-  onClick: () => void;
-}> = ({ node, isActive, onClick }) => {
-  return (
-    <div
-      className={`
-        w-20 h-20 flex flex-col items-center justify-center rounded-full cursor-pointer transition-all
-        ${isActive ? `bg-kaal-${node.color}/20 border-2 border-kaal-${node.color}` : 'bg-card border border-border hover:bg-muted/20'}
-      `}
-      onClick={onClick}
-    >
-      <div className={`text-kaal-${node.color}`}>{node.icon}</div>
-      <div className="text-xs font-medium mt-1">{node.title}</div>
-      <div className="text-[10px] text-muted-foreground">{node.latency}</div>
-    </div>
-  );
-};
-
-const NodeDetails: React.FC<{ node: Node }> = ({ node }) => {
-  return (
-    <div className={`bg-kaal-${node.color}/10 p-4 rounded-md border border-kaal-${node.color}/30`}>
-      <div className="flex items-start">
-        <div className={`p-2 rounded-full bg-kaal-${node.color}/20 text-kaal-${node.color} mr-3`}>
-          {node.icon}
-        </div>
-        <div>
-          <h4 className="font-medium">{node.title}</h4>
-          <p className="text-sm text-muted-foreground mt-1">{node.description}</p>
-          <div className="flex items-center mt-2">
-            <span className="text-xs bg-muted/20 px-2 py-0.5 rounded-full">Latency: {node.latency}</span>
-          </div>
-        </div>
+      <div className="mt-4 text-center text-sm text-muted-foreground">
+        Total End-to-End Latency: <span className="font-medium text-kaal-green">11-29ms</span> (typical: ~18ms)
       </div>
     </div>
   );

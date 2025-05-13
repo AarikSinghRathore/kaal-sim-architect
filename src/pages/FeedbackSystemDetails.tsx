@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Layout from "@/components/layout/Layout";
 import ViewToggle from "@/components/ui/ViewToggle";
@@ -17,10 +18,10 @@ import {
   CircleCheck,
   CircleX,
   CircleAlert,
-  Circuit,
   Microchip,
   Code,
-  ChevronDown
+  ChevronDown,
+  CircuitBoard
 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import FeedbackSystemFlowchart from "@/components/feedback/FeedbackSystemFlowchart";
@@ -245,7 +246,7 @@ const FeedbackSystemDetails = () => {
                       )}
                       onClick={() => handleSuitSubsystemClick("electrodes")}
                     >
-                      <Circuit className="h-8 w-8 text-kaal-yellow" />
+                      <CircuitBoard className="h-8 w-8 text-kaal-yellow" />
                     </div>
                     <span className="mt-2 text-sm">Electrodes</span>
                   </div>
@@ -1011,7 +1012,7 @@ void IR_ISR() {
     electrodes: (
       <div className="space-y-4">
         <h4 className="text-lg font-medium flex items-center text-kaal-yellow">
-          <Circuit className="h-5 w-5 mr-2" />
+          <CircuitBoard className="h-5 w-5 mr-2" />
           Electrode System
         </h4>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
