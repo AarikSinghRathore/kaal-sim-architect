@@ -1150,7 +1150,7 @@ Battery Monitoring:
               </li>
               <li className="flex items-start">
                 <span className="text-kaal-orange mr-2">•</span>
-                <span><strong>Auto Cutoff:</strong> Overcurrent detection using INA219 sensor (cut if >800mA spike)</span>
+                <span><strong>Auto Cutoff:</strong> Overcurrent detection using INA219 sensor (cut if &gt;800mA spike)</span>
               </li>
               <li className="flex items-start">
                 <span className="text-kaal-orange mr-2">•</span>
