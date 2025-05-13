@@ -66,7 +66,7 @@ const TechnicalView = () => {
             <div>
               <h4 className="font-medium mb-2">Trigger-to-Signal Logic</h4>
               <p className="text-sm text-muted-foreground">
-                Hall-effect magnetic sensor with 1.5mm actuation distance for reliable trigger detection. Features debounce algorithm and hardware interrupt handling to ensure < 5ms response time between trigger pull and signal emission.
+                Hall-effect magnetic sensor with 1.5mm actuation distance for reliable trigger detection. Features debounce algorithm and hardware interrupt handling to ensure {"<"} 5ms response time between trigger pull and signal emission.
               </p>
             </div>
             
@@ -185,7 +185,7 @@ Config Change | 256 bytes   | < 1000ms  | 300m     | High`}
             <div>
               <h4 className="font-medium mb-2">Real-Time Suit Status</h4>
               <p className="text-sm text-muted-foreground">
-                Web-based reactive dashboard with < 250ms update latency showing per-participant health and hit status. Features heat map visualization of impact locations and configurable thresholds for "wounded" vs "eliminated" status tracking.
+                Web-based reactive dashboard with {"<"} 250ms update latency showing per-participant health and hit status. Features heat map visualization of impact locations and configurable thresholds for "wounded" vs "eliminated" status tracking.
               </p>
             </div>
             
