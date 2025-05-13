@@ -73,8 +73,9 @@ export default {
 				}
 			},
 			fontFamily: {
-				sans: ['Inter', 'sans-serif'],
+				sans: ['Montserrat', 'Inter', 'sans-serif'],
 				mono: ['JetBrains Mono', 'monospace'],
+				display: ['Orbitron', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -127,6 +128,17 @@ export default {
 						opacity: '0.8',
 						filter: 'brightness(1.2)'
 					}
+				},
+				'hologram-flicker': {
+					'0%, 100%': {
+						opacity: '1',
+					},
+					'33%': {
+						opacity: '0.9',
+					},
+					'66%': {
+						opacity: '0.8',
+					}
 				}
 			},
 			animation: {
@@ -134,7 +146,8 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.3s ease-out forwards',
 				'fade-out': 'fade-out 0.3s ease-out forwards',
-				'pulse-glow': 'pulse-glow 2s ease-in-out infinite'
+				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+				'hologram-flicker': 'hologram-flicker 3s ease-in-out infinite'
 			}
 		}
 	},

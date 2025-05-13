@@ -1,78 +1,54 @@
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Layout from "@/components/layout/Layout";
-import GunToSuitSystem from "@/components/architecture/GunToSuitSystem";
-import TerrainSimulation from "@/components/architecture/TerrainSimulation";
-import SystemFlowchart from "@/components/architecture/SystemFlowchart";
-import InteractiveFlowchart from "@/components/architecture/InteractiveFlowchart";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Shield, Mountain, Network, FileText, Link as LinkIcon } from "lucide-react";
+import { 
+  Cpu, 
+  Zap, 
+  Shield, 
+  Mountain, 
+  Table, 
+  FileText 
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import InteractiveFlowchart from "@/components/architecture/InteractiveFlowchart";
+import GunToSuitSystem from "@/components/architecture/GunToSuitSystem";
+import TerrainSimulation from "@/components/architecture/TerrainSimulation";
 
-const Architecture = () => {
-  const [selectedTab, setSelectedTab] = useState("flowchart");
-
-  useEffect(() => {
-    // Trigger animations when page loads
-    const sections = document.querySelectorAll('.animate-fade-in');
-    sections.forEach((section, index) => {
-      setTimeout(() => {
-        section.classList.remove('opacity-0');
-      }, index * 200);
-    });
-  }, [selectedTab]);
-
-  const handleTabChange = (value: string) => {
-    setSelectedTab(value);
-  };
-
+const Technical = () => {
   return (
-    <Layout
-      heroTitle="System Architecture"
-      heroSubtitle="The complete breakdown of KAAL's innovative technical systems"
+    <Layout 
+      heroTitle="KAAL Technical Documentation" 
+      heroSubtitle="Comprehensive System Architecture and Technical Specifications" 
+      heroBackground="from-kaal-navy/90 to-black"
     >
-      {/* Tabs Section */}
-      <section className="py-12 container">
-        <Tabs 
-          defaultValue="flowchart" 
-          className="max-w-5xl mx-auto"
-          value={selectedTab}
-          onValueChange={handleTabChange}
-        >
-          <TabsList className="grid grid-cols-5 mb-10">
+      <div className="container mx-auto py-12">
+        <Tabs defaultValue="flowchart" className="max-w-5xl mx-auto">
+          <TabsList className="grid grid-cols-4 mb-8">
             <TabsTrigger value="flowchart" className="flex items-center gap-2">
-              <Network className="h-4 w-4" />
-              <span className="hidden sm:inline">Flowchart</span>
-              <span className="sm:hidden">Flow</span>
-            </TabsTrigger>
-            <TabsTrigger value="interactive" className="flex items-center gap-2">
-              <LinkIcon className="h-4 w-4" />
-              <span className="hidden sm:inline">Interactive</span>
-              <span className="sm:hidden">Inter</span>
+              <Cpu className="h-4 w-4" />
+              <span className="hidden sm:inline">System Architecture</span>
+              <span className="sm:hidden">Architecture</span>
             </TabsTrigger>
             <TabsTrigger value="gun-suit" className="flex items-center gap-2">
-              <Shield className="h-4 w-4" />
-              <span className="hidden sm:inline">Gun-to-Suit</span>
-              <span className="sm:hidden">Gun</span>
+              <Zap className="h-4 w-4" />
+              <span className="hidden sm:inline">Feedback System</span>
+              <span className="sm:hidden">Feedback</span>
             </TabsTrigger>
             <TabsTrigger value="terrain" className="flex items-center gap-2">
               <Mountain className="h-4 w-4" />
-              <span className="hidden sm:inline">Terrain</span>
+              <span className="hidden sm:inline">Terrain Engine</span>
               <span className="sm:hidden">Terrain</span>
             </TabsTrigger>
-            <TabsTrigger value="docs" className="flex items-center gap-2">
+            <TabsTrigger value="downloads" className="flex items-center gap-2">
               <FileText className="h-4 w-4" />
-              <span className="hidden sm:inline">Documents</span>
+              <span className="hidden sm:inline">Documentation</span>
               <span className="sm:hidden">Docs</span>
             </TabsTrigger>
           </TabsList>
           
           <TabsContent value="flowchart">
-            <SystemFlowchart />
-          </TabsContent>
-          
-          <TabsContent value="interactive">
             <InteractiveFlowchart />
           </TabsContent>
           
@@ -84,9 +60,9 @@ const Architecture = () => {
             <TerrainSimulation />
           </TabsContent>
           
-          <TabsContent value="docs">
+          <TabsContent value="downloads">
             <div className="space-y-8 opacity-0 animate-fade-in">
-              <h2 className="text-2xl font-bold text-center mb-8">Documentation & Downloads</h2>
+              <h2 className="text-2xl font-bold text-center">Technical Documentation</h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
                 <div className="kaal-card p-6 flex flex-col items-center">
@@ -106,7 +82,7 @@ const Architecture = () => {
                 
                 <div className="kaal-card p-6 flex flex-col items-center">
                   <div className="w-16 h-16 rounded-full bg-kaal-green/20 flex items-center justify-center mb-4">
-                    <Network className="h-8 w-8 text-kaal-green" />
+                    <Table className="h-8 w-8 text-kaal-green" />
                   </div>
                   <h3 className="text-lg font-medium mb-2">System Architecture Diagram</h3>
                   <p className="text-sm text-muted-foreground text-center mb-6">
@@ -114,32 +90,26 @@ const Architecture = () => {
                     integration, data flow, and component interactions.
                   </p>
                   <Button className="mt-auto">
-                    <Network className="h-4 w-4 mr-2" />
+                    <Table className="h-4 w-4 mr-2" />
                     Download Architecture Diagram (PDF)
                   </Button>
                 </div>
               </div>
               
-              <div className="flex justify-center gap-6 mt-10">
+              <div className="flex justify-center mt-10">
                 <Link to="/safety">
                   <Button variant="outline" size="lg">
                     <Shield className="h-4 w-4 mr-2" />
                     View Safety Systems
                   </Button>
                 </Link>
-                
-                <Link to="/cost-comparison">
-                  <Button variant="outline" size="lg">
-                    View Cost Comparison
-                  </Button>
-                </Link>
               </div>
             </div>
           </TabsContent>
         </Tabs>
-      </section>
+      </div>
     </Layout>
   );
 };
 
-export default Architecture;
+export default Technical;

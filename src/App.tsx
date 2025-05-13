@@ -7,6 +7,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Architecture from "./pages/Architecture";
 import NotFound from "./pages/NotFound";
+import Technical from "./pages/Technical";
+import Safety from "./pages/Safety";
+import CostComparison from "./pages/CostComparison";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +22,9 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/architecture" element={<Architecture />} />
+          <Route path="/technical" element={<Technical />} />
+          <Route path="/safety" element={<Safety />} />
+          <Route path="/cost-comparison" element={<CostComparison />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

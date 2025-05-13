@@ -9,6 +9,12 @@ import {
   CostComparisonSection,
   StrategicImpactSection
 } from "@/components/sections/InfoSection";
+import { 
+  Download,
+  FileText,
+  Shield,
+  Mountain
+} from "lucide-react";
 
 const Index = () => {
   useEffect(() => {
@@ -22,49 +28,107 @@ const Index = () => {
   }, []);
 
   return (
-    <Layout>
-      {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-kaal-navy to-black z-0">
-          {/* Abstract grid background */}
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMxLjIzIDAgMi4xOTgtMS4wNjQgMS44NzgtMi4xOTJDMzYuNTYgOC43NCAzMC4zMDQgMyAzMC4zMDQgM3MtNi4yNTQgNS43NC03LjU3NCAxMi44MDhDMjIuNDA4IDE2LjkzNiAyMy4zNzcgMTggMjQuNjA1IDE4SDM2eiIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvZz48L3N2Zz4=')] opacity-20"></div>
-        </div>
-        <div className="container relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
-                What is Project
-              </span>
-              <span className="text-kaal-green ml-2">KAAL?</span>
-            </h1>
-            
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8">
-              Next-generation military training system
-              for the modern battlefield
-            </p>
-            
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link to="#what-is-kaal">
-                <Button variant="default" size="lg" className="bg-gradient-to-r from-kaal-green to-kaal-blue border-0">
-                  Learn More
-                </Button>
-              </Link>
-              <Link to="/architecture">
-                <Button variant="outline" size="lg">
-                  System Architecture
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-      
+    <Layout 
+      heroTitle={
+        <>
+          Project <span className="text-kaal-green">KAAL</span>
+        </>
+      }
+      heroSubtitle="India's Immersive Military Simulation System"
+      heroBackground="from-kaal-navy via-kaal-navy/80 to-black"
+      className="mb-10"
+    >
       {/* Main Content */}
       <div className="py-10">
         <WhatIsKaalSection />
         <WhyKaalSection />
-        <CostComparisonSection />
+        
+        {/* View Options */}
+        <section className="kaal-section opacity-0 animate-fade-in">
+          <div className="container max-w-5xl mx-auto">
+            <h2 className="section-title mb-12">Explore KAAL In Depth</h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="kaal-card p-6 hover:border-kaal-blue/50 transition-colors flex flex-col">
+                <div className="mb-4 p-3 rounded-full bg-kaal-blue/20 text-kaal-blue self-start">
+                  <Shield className="h-6 w-6" />
+                </div>
+                <h3 className="text-lg font-medium mb-2">System Architecture</h3>
+                <p className="text-muted-foreground text-sm mb-6 flex-grow">
+                  Explore the complete technical breakdown of KAAL's innovative dual system architecture with interactive diagrams.
+                </p>
+                <Link to="/architecture" className="mt-auto">
+                  <Button className="w-full">View Architecture</Button>
+                </Link>
+              </div>
+              
+              <div className="kaal-card p-6 hover:border-kaal-green/50 transition-colors flex flex-col">
+                <div className="mb-4 p-3 rounded-full bg-kaal-green/20 text-kaal-green self-start">
+                  <Shield className="h-6 w-6" />
+                </div>
+                <h3 className="text-lg font-medium mb-2">Safety Systems</h3>
+                <p className="text-muted-foreground text-sm mb-6 flex-grow">
+                  Discover the comprehensive safety measures and failsafe protocols that ensure complete protection during training.
+                </p>
+                <Link to="/safety" className="mt-auto">
+                  <Button className="w-full">Safety Details</Button>
+                </Link>
+              </div>
+              
+              <div className="kaal-card p-6 hover:border-kaal-yellow/50 transition-colors flex flex-col">
+                <div className="mb-4 p-3 rounded-full bg-kaal-yellow/20 text-kaal-yellow self-start">
+                  <Mountain className="h-6 w-6" />
+                </div>
+                <h3 className="text-lg font-medium mb-2">Terrain Engine</h3>
+                <p className="text-muted-foreground text-sm mb-6 flex-grow">
+                  Learn about the advanced terrain engine that powers KAAL's immersive simulation environment.
+                </p>
+                <Link to="/technical" className="mt-auto">
+                  <Button className="w-full">Technical Details</Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+        
         <StrategicImpactSection />
+        
+        {/* Downloads Section */}
+        <section className="kaal-section opacity-0 animate-fade-in">
+          <div className="container max-w-4xl mx-auto">
+            <h2 className="section-title">Documentation</h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+              <div className="kaal-card p-6 flex flex-col items-center text-center">
+                <div className="w-16 h-16 rounded-full bg-kaal-blue/20 flex items-center justify-center mb-4">
+                  <FileText className="h-8 w-8 text-kaal-blue" />
+                </div>
+                <h3 className="text-lg font-medium mb-2">KAAL Whitepaper</h3>
+                <p className="text-sm text-muted-foreground mb-6">
+                  Comprehensive overview of Project KAAL's development methodology, technical specifications, and strategic implementation plan.
+                </p>
+                <Button className="mt-auto">
+                  <Download className="h-4 w-4 mr-2" />
+                  Download Whitepaper
+                </Button>
+              </div>
+              
+              <div className="kaal-card p-6 flex flex-col items-center text-center">
+                <div className="w-16 h-16 rounded-full bg-kaal-green/20 flex items-center justify-center mb-4">
+                  <FileText className="h-8 w-8 text-kaal-green" />
+                </div>
+                <h3 className="text-lg font-medium mb-2">System Architecture Diagram</h3>
+                <p className="text-sm text-muted-foreground mb-6">
+                  Detailed technical diagrams showing the complete KAAL system architecture and component interactions.
+                </p>
+                <Button className="mt-auto">
+                  <Download className="h-4 w-4 mr-2" />
+                  Download Architecture Diagram
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
       
       {/* CTA Section */}
