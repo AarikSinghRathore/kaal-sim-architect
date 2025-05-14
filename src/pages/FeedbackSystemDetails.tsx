@@ -11,7 +11,8 @@ import {
   AlertTriangle,
   Map,
   Tablet,
-  Database
+  Database,
+  Monitor
 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import GunSubsystemFlowchart from '@/components/flowchart/GunSubsystemFlowchart';

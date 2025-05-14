@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import ViewToggle from '@/components/ui/ViewToggle';
 import GunSubsystemFlowchart from './GunSubsystemFlowchart';
@@ -8,7 +7,7 @@ import TerrainDataFlowchart from './TerrainDataFlowchart';
 import UERenderFlowchart from './UERenderFlowchart';
 import SafetyFlowchart from './SafetyFlowchart';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Shield, Zap, Cpu, Monitor, Mountain, Map, AlertTriangle } from 'lucide-react';
+import { Shield, Zap, Cpu, Monitor, Mountain, Map, AlertTriangle, Tablet } from 'lucide-react';
 
 interface FlowchartContainerProps {
   type: "feedback" | "terrain";
