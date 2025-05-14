@@ -6,7 +6,7 @@ import TerrainSimulation from "@/components/architecture/TerrainSimulation";
 import SystemFlowchart from "@/components/architecture/SystemFlowchart";
 import InteractiveFlowchart from "@/components/architecture/InteractiveFlowchart";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Shield, Mountain, Network, FileText, Link as LinkIcon } from "lucide-react";
+import { Shield, Mountain, Network, FileText, Link as LinkIcon, Cpu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -70,10 +70,26 @@ const Architecture = () => {
           
           <TabsContent value="flowchart">
             <SystemFlowchart />
+            <div className="flex justify-center mt-8">
+              <Link to="/detailed-flowcharts">
+                <Button className="flex items-center gap-2">
+                  <Cpu className="h-4 w-4" />
+                  View Detailed Interactive Flowcharts
+                </Button>
+              </Link>
+            </div>
           </TabsContent>
           
           <TabsContent value="interactive">
             <InteractiveFlowchart />
+            <div className="flex justify-center mt-8">
+              <Link to="/detailed-flowcharts">
+                <Button className="flex items-center gap-2">
+                  <Cpu className="h-4 w-4" />
+                  View Detailed Interactive Flowcharts
+                </Button>
+              </Link>
+            </div>
           </TabsContent>
           
           <TabsContent value="gun-suit">
@@ -131,6 +147,13 @@ const Architecture = () => {
                 <Link to="/cost-comparison">
                   <Button variant="outline" size="lg">
                     View Cost Comparison
+                  </Button>
+                </Link>
+
+                <Link to="/detailed-flowcharts">
+                  <Button variant="outline" size="lg">
+                    <Cpu className="h-4 w-4 mr-2" />
+                    View Interactive Flowcharts
                   </Button>
                 </Link>
               </div>

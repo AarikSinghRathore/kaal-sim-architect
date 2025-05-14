@@ -51,6 +51,14 @@ const Technical = () => {
           
           <TabsContent value="flowchart">
             <InteractiveFlowchart />
+            <div className="flex justify-center mt-8">
+              <Link to="/detailed-flowcharts">
+                <Button className="flex items-center gap-2">
+                  <Cpu className="h-4 w-4 mr-2" />
+                  View Detailed Interactive Flowcharts
+                </Button>
+              </Link>
+            </div>
           </TabsContent>
           
           <TabsContent value="gun-suit">
@@ -58,6 +66,14 @@ const Technical = () => {
               <GunToSuitSystem />
               <hr className="border-muted/20" />
               <FlowchartContainer type="feedback" />
+              <div className="flex justify-center mt-8">
+                <Link to="/detailed-flowcharts">
+                  <Button variant="outline" className="flex items-center gap-2">
+                    <Zap className="h-4 w-4 mr-2" />
+                    View Detailed Feedback System Flowcharts
+                  </Button>
+                </Link>
+              </div>
             </div>
           </TabsContent>
           
@@ -66,6 +82,14 @@ const Technical = () => {
               <TerrainSimulation />
               <hr className="border-muted/20" />
               <FlowchartContainer type="terrain" />
+              <div className="flex justify-center mt-8">
+                <Link to="/detailed-flowcharts">
+                  <Button variant="outline" className="flex items-center gap-2">
+                    <Mountain className="h-4 w-4 mr-2" />
+                    View Detailed Terrain System Flowcharts
+                  </Button>
+                </Link>
+              </div>
             </div>
           </TabsContent>
           
@@ -105,11 +129,18 @@ const Technical = () => {
                 </div>
               </div>
               
-              <div className="flex justify-center mt-10">
+              <div className="flex justify-center gap-4 mt-10">
                 <Link to="/safety">
                   <Button variant="outline" size="lg">
                     <Shield className="h-4 w-4 mr-2" />
                     View Safety Systems
+                  </Button>
+                </Link>
+                
+                <Link to="/detailed-flowcharts">
+                  <Button variant="outline" size="lg">
+                    <Cpu className="h-4 w-4 mr-2" />
+                    View Interactive Flowcharts
                   </Button>
                 </Link>
               </div>
@@ -119,6 +150,6 @@ const Technical = () => {
       </div>
     </Layout>
   );
-};
+}
 
 export default Technical;

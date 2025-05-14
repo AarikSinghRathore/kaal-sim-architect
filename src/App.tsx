@@ -8,6 +8,7 @@ import CostComparison from './pages/CostComparison';
 import FeedbackSystemDetails from './pages/FeedbackSystemDetails';
 import Safety from './pages/Safety';
 import NotFound from './pages/NotFound';
+import DetailedFlowcharts from './pages/DetailedFlowcharts';
 import './App.css';
 import { TooltipProvider } from './components/ui/tooltip';
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="/feedback-system" element={<FeedbackSystemDetails />} />
           <Route path="/cost-comparison" element={<CostComparison />} />
           <Route path="/safety" element={<Safety />} />
+          <Route path="/detailed-flowcharts" element={<DetailedFlowcharts />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
