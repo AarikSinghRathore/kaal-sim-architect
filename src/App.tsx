@@ -9,21 +9,24 @@ import FeedbackSystemDetails from './pages/FeedbackSystemDetails';
 import Safety from './pages/Safety';
 import NotFound from './pages/NotFound';
 import './App.css';
+import { TooltipProvider } from './components/ui/tooltip';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/architecture" element={<Architecture />} />
-        <Route path="/technical" element={<Technical />} />
-        <Route path="/terrain-simulation" element={<TerrainSimulationDetails />} />
-        <Route path="/feedback-system" element={<FeedbackSystemDetails />} />
-        <Route path="/cost-comparison" element={<CostComparison />} />
-        <Route path="/safety" element={<Safety />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Router>
+    <TooltipProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/architecture" element={<Architecture />} />
+          <Route path="/technical" element={<Technical />} />
+          <Route path="/terrain-simulation" element={<TerrainSimulationDetails />} />
+          <Route path="/feedback-system" element={<FeedbackSystemDetails />} />
+          <Route path="/cost-comparison" element={<CostComparison />} />
+          <Route path="/safety" element={<Safety />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Router>
+    </TooltipProvider>
   );
 }
 

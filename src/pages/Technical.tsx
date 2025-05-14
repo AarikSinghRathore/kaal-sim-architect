@@ -15,6 +15,7 @@ import { Link } from "react-router-dom";
 import InteractiveFlowchart from "@/components/architecture/InteractiveFlowchart";
 import GunToSuitSystem from "@/components/architecture/GunToSuitSystem";
 import TerrainSimulation from "@/components/architecture/TerrainSimulation";
+import FlowchartContainer from "@/components/flowchart/FlowchartContainer";
 
 const Technical = () => {
   return (
@@ -53,11 +54,19 @@ const Technical = () => {
           </TabsContent>
           
           <TabsContent value="gun-suit">
-            <GunToSuitSystem />
+            <div className="space-y-12">
+              <GunToSuitSystem />
+              <hr className="border-muted/20" />
+              <FlowchartContainer type="feedback" />
+            </div>
           </TabsContent>
           
           <TabsContent value="terrain">
-            <TerrainSimulation />
+            <div className="space-y-12">
+              <TerrainSimulation />
+              <hr className="border-muted/20" />
+              <FlowchartContainer type="terrain" />
+            </div>
           </TabsContent>
           
           <TabsContent value="downloads">
