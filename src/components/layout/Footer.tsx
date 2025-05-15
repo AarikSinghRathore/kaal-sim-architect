@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Shield } from 'lucide-react';
+import Logo from '@/components/ui/logo';
 
 const Footer = () => {
   return (
@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <Shield className="h-6 w-6 text-kaal-green" />
+              <Logo size="sm" />
               <span className="font-bold tracking-tight">
                 PROJECT <span className="text-kaal-green">KAAL</span>
               </span>

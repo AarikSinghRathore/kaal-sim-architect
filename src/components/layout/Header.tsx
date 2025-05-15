@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { 
-  Shield, 
   Menu, 
   X, 
   ChevronRight,
@@ -11,6 +10,7 @@ import {
   Zap,
   LucideIcon
 } from 'lucide-react';
+import Logo from '@/components/ui/logo';
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -24,7 +24,7 @@ const Header = () => {
       <div className="container flex justify-between items-center h-16 px-4 md:px-6">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
-          <Shield className="h-8 w-8 text-kaal-green" />
+          <Logo size="md" />
           <span className="text-lg font-bold tracking-tight">
             PROJECT <span className="text-kaal-green">KAAL</span>
           </span>
@@ -32,7 +32,7 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
-          <NavLink to="/" icon={Shield} label="Overview" />
+          <NavLink to="/" icon={Logo} label="Overview" />
           <NavLink to="/architecture" icon={ChevronRight} label="Architecture" />
           <NavLink to="/feedback-system" icon={Zap} label="Feedback System" />
           <NavLink to="/terrain-simulation" icon={Mountain} label="Terrain Engine" />
