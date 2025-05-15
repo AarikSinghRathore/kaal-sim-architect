@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import { Button } from '@/components/ui/button';
-import { ArrowRightLeft, FileText } from 'lucide-react';
+import { ArrowRightLeft, FileText, Menu } from 'lucide-react';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -77,6 +77,15 @@ const Layout: React.FC<LayoutProps> = ({
                     <Button variant="outline" size="lg" className="border-kaal-green hover:bg-kaal-green/20">
                       <FileText className="h-4 w-4 mr-2" />
                       Technical Documentation
+                    </Button>
+                  </Link>
+                </div>
+                
+                <div>
+                  <Link to="/site-map">
+                    <Button variant="outline" size="lg" className="border-kaal-yellow hover:bg-kaal-yellow/20">
+                      <Menu className="h-4 w-4 mr-2" />
+                      Website Map
                     </Button>
                   </Link>
                 </div>
