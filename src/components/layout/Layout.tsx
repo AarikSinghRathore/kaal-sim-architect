@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import { Button } from '@/components/ui/button';
-import { ArrowRightLeft } from 'lucide-react';
+import { ArrowRightLeft, FileText } from 'lucide-react';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -64,12 +64,23 @@ const Layout: React.FC<LayoutProps> = ({
             </p>
             
             {showToggleButton && (
-              <Link to={togglePath}>
-                <Button variant="outline" size="lg" className="border-kaal-blue hover:bg-kaal-blue/20">
-                  <ArrowRightLeft className="h-4 w-4 mr-2" />
-                  {toggleText}
-                </Button>
-              </Link>
+              <div className="space-y-4">
+                <Link to={togglePath}>
+                  <Button variant="outline" size="lg" className="border-kaal-blue hover:bg-kaal-blue/20">
+                    <ArrowRightLeft className="h-4 w-4 mr-2" />
+                    {toggleText}
+                  </Button>
+                </Link>
+                
+                <div>
+                  <Link to="/technical">
+                    <Button variant="outline" size="lg" className="border-kaal-green hover:bg-kaal-green/20">
+                      <FileText className="h-4 w-4 mr-2" />
+                      Technical Documentation
+                    </Button>
+                  </Link>
+                </div>
+              </div>
             )}
           </div>
         </div>
