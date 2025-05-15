@@ -215,7 +215,7 @@ void decodeIRSignal(uint8_t* rawData, size_t len) {
             <li>• Emergency stop button (hardware cutoff)</li>
             <li>• Instructor kill-switch via BLE</li>
             <li>• Skin contact sensors prevent dry activation</li>
-            <li>• Thermal sensors (>45°C shutdown)</li>
+            <li>• Thermal sensors ({">"} 45°C shutdown)</li>
             <li>• IEC 60601-1 compliant pulse limiters</li>
           </ul>
         </div>
@@ -532,7 +532,7 @@ void decodeIRSignal(uint8_t* rawData, size_t len) {
                 <h5 className="font-medium mb-2">Automatic Safety Mechanisms</h5>
                 <ul className="text-sm text-muted-foreground space-y-1 ml-5 list-disc">
                   <li>Skin Contact Sensors: Disable electrode if skin resistance too low.</li>
-                  <li>Overheat Protection: Thermal sensors disable zones >45°C.</li>
+                  <li>Overheat Protection: Thermal sensors disable zones {">"}45°C.</li>
                   <li>Pulse Limiters: Caps current below medical safety thresholds (IEC 60601-1).</li>
                   <li>Dry Contact Detection: Halts activation if electrode contact is dry (no conductivity).</li>
                   <li>Battery Overload Cutoff: BMS circuit shuts off current draw during surges.</li>
