@@ -107,7 +107,7 @@ const Technical = () => {
                     Comprehensive technical whitepaper detailing the full KAAL system specifications,
                     research methodology, and implementation strategy.
                   </p>
-                  <Button className="mt-auto">
+                  <Button className="mt-auto" onClick={() => window.open("https://drive.google.com/file/d/1puhfJ5VSebEozFuvTpdedzXCnDacXOQZ/view?usp=sharing", "_blank")}>
                     <FileText className="h-4 w-4 mr-2" />
                     Download Whitepaper (PDF)
                   </Button>
