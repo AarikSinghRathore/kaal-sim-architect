@@ -255,47 +255,47 @@ const WebsiteFlowchart = () => {
       <div className="flex justify-end gap-2 mb-2">
         <button 
           onClick={handleZoomOut} 
-          className="p-2 rounded-md bg-muted hover:bg-muted/80 transition-colors"
+          className="p-2 rounded-md bg-muted hover:bg-muted/80 text-foreground font-medium transition-colors"
           aria-label="Zoom out"
         >
           -
         </button>
         <button 
           onClick={handleResetZoom} 
-          className="p-2 rounded-md bg-muted hover:bg-muted/80 transition-colors"
+          className="p-2 rounded-md bg-muted hover:bg-muted/80 text-foreground font-medium transition-colors"
           aria-label="Reset zoom"
         >
           Reset
         </button>
         <button 
           onClick={handleZoomIn} 
-          className="p-2 rounded-md bg-muted hover:bg-muted/80 transition-colors"
+          className="p-2 rounded-md bg-muted hover:bg-muted/80 text-foreground font-medium transition-colors"
           aria-label="Zoom in"
         >
           +
         </button>
       </div>
 
-      <div className="relative h-[700px] border border-border rounded-lg bg-card/50 overflow-hidden">
+      <div className="relative h-[700px] border-2 border-border rounded-lg bg-background overflow-hidden shadow-lg">
         {/* Flowchart legend */}
-        <div className="absolute top-2 left-2 z-10 bg-background/80 p-2 rounded-md border border-border backdrop-blur-sm">
-          <div className="text-xs font-medium mb-1">Legend:</div>
-          <div className="flex flex-col gap-1">
-            <div className="flex items-center gap-1">
-              <div className="w-3 h-3 rounded-full bg-kaal-blue"></div>
-              <span className="text-xs">Interface System</span>
+        <div className="absolute top-2 left-2 z-10 bg-card p-3 rounded-md border-2 border-border backdrop-blur-sm shadow-md">
+          <div className="text-sm font-semibold mb-2">Legend:</div>
+          <div className="flex flex-col gap-2">
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 rounded-full bg-kaal-blue"></div>
+              <span className="text-xs font-medium">Interface System</span>
             </div>
-            <div className="flex items-center gap-1">
-              <div className="w-3 h-3 rounded-full bg-kaal-green"></div>
-              <span className="text-xs">Core System</span>
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 rounded-full bg-kaal-green"></div>
+              <span className="text-xs font-medium">Core System</span>
             </div>
-            <div className="flex items-center gap-1">
-              <div className="w-3 h-3 rounded-full bg-kaal-yellow"></div>
-              <span className="text-xs">Documentation</span>
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 rounded-full bg-kaal-yellow"></div>
+              <span className="text-xs font-medium">Documentation</span>
             </div>
-            <div className="flex items-center gap-1">
-              <div className="w-3 h-3 rounded-full bg-kaal-red"></div>
-              <span className="text-xs">Safety & Navigation</span>
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 rounded-full bg-kaal-red"></div>
+              <span className="text-xs font-medium">Safety & Navigation</span>
             </div>
           </div>
         </div>
@@ -315,8 +315,13 @@ const WebsiteFlowchart = () => {
                 const targetY = targetPage.position.y;
                 
                 const isActive = activePage === page.id || activePage === targetId;
-                const strokeColor = isActive ? `var(--${page.color})` : 'rgba(128, 128, 128, 0.3)';
-                const strokeWidth = isActive ? 2 : 1;
+                
+                // Increased visibility for connections
+                const strokeColor = isActive 
+                  ? `var(--${page.color})` 
+                  : 'rgba(128, 128, 128, 0.5)'; // Increased opacity for inactive connections
+                
+                const strokeWidth = isActive ? 3 : 1.5; // Increased stroke width
                 
                 return (
                   <line 
@@ -327,7 +332,7 @@ const WebsiteFlowchart = () => {
                     y2={targetY}
                     stroke={strokeColor}
                     strokeWidth={strokeWidth}
-                    strokeDasharray={isActive ? "none" : "4 2"}
+                    strokeDasharray={isActive ? "none" : "6 3"} // More visible dash pattern
                   />
                 );
               })
@@ -339,20 +344,22 @@ const WebsiteFlowchart = () => {
             <div
               key={page.id}
               className={`absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-all 
-                        border ${activePage === page.id ? `border-${page.color} bg-${page.color}/10` : 'border-border bg-card'} 
-                        rounded-lg p-3 w-48 text-center`}
+                        border-2 ${activePage === page.id 
+                          ? `border-${page.color} bg-${page.color}/15 shadow-lg` 
+                          : 'border-border bg-card hover:border-muted-foreground'} 
+                        rounded-lg p-4 w-48 text-center`}
               style={{ left: page.position.x, top: page.position.y }}
               onClick={() => handlePageClick(page.id)}
             >
               <div className={`flex justify-center mb-2 text-${page.color}`}>
                 {page.icon}
               </div>
-              <div className="text-sm font-medium">{page.name}</div>
+              <div className="text-sm font-semibold">{page.name}</div>
               <div className="text-xs text-muted-foreground mt-1 truncate">{page.description.split('.')[0]}</div>
               
               {activePage === page.id && (
                 <div className="absolute top-0 right-0 transform translate-x-1/4 -translate-y-1/4">
-                  <Badge className={`bg-${page.color}`}>Active</Badge>
+                  <Badge className={`bg-${page.color} text-white font-semibold shadow-sm`}>Active</Badge>
                 </div>
               )}
             </div>
@@ -360,7 +367,7 @@ const WebsiteFlowchart = () => {
         </div>
         
         {/* Page details panel */}
-        <div className="absolute bottom-4 left-4 right-4 bg-card/80 backdrop-blur-sm border border-border rounded-lg p-4 max-h-[300px] overflow-y-auto">
+        <div className="absolute bottom-4 left-4 right-4 bg-card border-2 border-border rounded-lg p-4 max-h-[300px] overflow-y-auto shadow-lg">
           {activePage ? (
             <div className="space-y-4">
               {(() => {
@@ -369,12 +376,12 @@ const WebsiteFlowchart = () => {
                 
                 return (
                   <>
-                    <div className="flex items-center gap-2">
-                      <div className={`text-${page.color} p-2 rounded-full bg-${page.color}/10`}>
+                    <div className="flex items-center gap-3">
+                      <div className={`text-${page.color} p-2.5 rounded-full bg-${page.color}/15 shadow-sm`}>
                         {page.icon}
                       </div>
                       <div>
-                        <h3 className="font-semibold">{page.name}</h3>
+                        <h3 className="font-bold text-lg">{page.name}</h3>
                         <p className="text-sm text-muted-foreground">{page.description}</p>
                       </div>
                     </div>
@@ -382,12 +389,12 @@ const WebsiteFlowchart = () => {
                     {/* Key Features */}
                     {page.keyFeatures && page.keyFeatures.length > 0 && (
                       <div className="mt-4">
-                        <h4 className="text-sm font-semibold mb-2">Key Features</h4>
+                        <h4 className="text-sm font-bold mb-2">Key Features</h4>
                         <ul className="grid grid-cols-2 gap-2">
                           {page.keyFeatures.map((feature, idx) => (
-                            <li key={idx} className="flex items-start gap-1.5 text-xs">
-                              <CircleDot className="h-3 w-3 mt-0.5 text-muted-foreground" />
-                              <span>{feature}</span>
+                            <li key={idx} className="flex items-start gap-2 text-xs bg-muted/30 p-2 rounded-md">
+                              <CircleDot className="h-3.5 w-3.5 mt-0.5 text-foreground" />
+                              <span className="font-medium">{feature}</span>
                             </li>
                           ))}
                         </ul>
@@ -397,10 +404,10 @@ const WebsiteFlowchart = () => {
                     {/* Subsections */}
                     {getPageSubsections(page.id).length > 0 && (
                       <div className="mt-4">
-                        <h4 className="text-sm font-semibold mb-2">Page Sections</h4>
+                        <h4 className="text-sm font-bold mb-2">Page Sections</h4>
                         <div className="grid grid-cols-1 gap-2">
                           {getPageSubsections(page.id).map((section, idx) => (
-                            <div key={idx} className="bg-muted/20 p-2 rounded-md">
+                            <div key={idx} className={`bg-${page.color}/5 p-2.5 rounded-md border border-${page.color}/20`}>
                               <div className="font-medium text-sm">{section.name}</div>
                               <div className="text-xs text-muted-foreground">{section.description}</div>
                             </div>
@@ -411,7 +418,7 @@ const WebsiteFlowchart = () => {
                     
                     <Link 
                       to={page.path}
-                      className={`block mt-4 text-sm text-${page.color} hover:underline flex items-center gap-1`}
+                      className={`block mt-4 text-sm text-white bg-${page.color} hover:bg-${page.color}/90 py-2 px-4 rounded-md flex items-center justify-center gap-2 shadow-sm`}
                     >
                       <span>Visit this page</span>
                       <BookOpen className="h-4 w-4" />
@@ -422,25 +429,25 @@ const WebsiteFlowchart = () => {
             </div>
           ) : (
             <div className="text-center space-y-4">
-              <p className="text-muted-foreground">
+              <p className="text-foreground font-medium">
                 Click on any page in the map to view its details and description
               </p>
               <div className="grid grid-cols-4 gap-4">
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center p-3 border border-border rounded-md bg-muted/10 hover:bg-muted/20 transition-colors">
                   <Book className="h-6 w-6 text-kaal-blue mb-2" />
-                  <p className="text-xs text-center">Detailed Content</p>
+                  <p className="text-xs font-medium text-center">Detailed Content</p>
                 </div>
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center p-3 border border-border rounded-md bg-muted/10 hover:bg-muted/20 transition-colors">
                   <Cpu className="h-6 w-6 text-kaal-green mb-2" />
-                  <p className="text-xs text-center">Technical Systems</p>
+                  <p className="text-xs font-medium text-center">Technical Systems</p>
                 </div>
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center p-3 border border-border rounded-md bg-muted/10 hover:bg-muted/20 transition-colors">
                   <Shield className="h-6 w-6 text-kaal-red mb-2" />
-                  <p className="text-xs text-center">Safety Features</p>
+                  <p className="text-xs font-medium text-center">Safety Features</p>
                 </div>
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center p-3 border border-border rounded-md bg-muted/10 hover:bg-muted/20 transition-colors">
                   <LayoutDashboard className="h-6 w-6 text-kaal-yellow mb-2" />
-                  <p className="text-xs text-center">Interactive Diagrams</p>
+                  <p className="text-xs font-medium text-center">Interactive Diagrams</p>
                 </div>
               </div>
             </div>
@@ -449,14 +456,14 @@ const WebsiteFlowchart = () => {
       </div>
 
       {/* Instructions for using the map */}
-      <div className="kaal-card p-4 mt-4 text-sm">
-        <h4 className="font-semibold mb-2">How to Use This Interactive Map</h4>
+      <div className="border-2 border-border p-4 mt-4 text-sm rounded-lg bg-card shadow-md">
+        <h4 className="font-bold mb-2">How to Use This Interactive Map</h4>
         <ul className="list-disc pl-5 space-y-2">
-          <li>Click on any page node to see detailed information about that section</li>
-          <li>Lines show connections between related pages</li>
-          <li>Use the zoom controls to adjust the view as needed</li>
-          <li>Click on "Visit this page" to navigate directly to the selected section</li>
-          <li>Colors represent different types of content (see legend)</li>
+          <li className="font-medium">Click on any page node to see detailed information about that section</li>
+          <li className="font-medium">Lines show connections between related pages</li>
+          <li className="font-medium">Use the zoom controls to adjust the view as needed</li>
+          <li className="font-medium">Click on "Visit this page" to navigate directly to the selected section</li>
+          <li className="font-medium">Colors represent different types of content (see legend)</li>
         </ul>
       </div>
     </div>
