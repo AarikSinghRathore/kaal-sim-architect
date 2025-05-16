@@ -8,7 +8,8 @@ import {
   ChevronRight,
   Mountain,
   Zap,
-  LucideIcon
+  LucideIcon,
+  Home
 } from 'lucide-react';
 import Logo from '@/components/ui/logo';
 
@@ -32,7 +33,7 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
-          <NavLink to="/" icon={Logo} label="Overview" />
+          <NavLink to="/" icon={Home} label="Overview" />
           <NavLink to="/architecture" icon={ChevronRight} label="Architecture" />
           <NavLink to="/feedback-system" icon={Zap} label="Feedback System" />
           <NavLink to="/terrain-simulation" icon={Mountain} label="Terrain Engine" />
