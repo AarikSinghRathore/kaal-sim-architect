@@ -35,7 +35,7 @@ const Technical = () => {
             </TabsTrigger>
             <TabsTrigger value="downloads" className="flex items-center gap-2">
               <FileText className="h-4 w-4" />
-              <span className="hidden sm:inline">Documentation</span>
+              <span className="hidden sm:inline">Safety Systems</span>
               <span className="sm:hidden">Docs</span>
             </TabsTrigger>
           </TabsList>
@@ -54,9 +54,7 @@ const Technical = () => {
 
           <TabsContent value="downloads">
             <div className="text-center opacity-0 animate-fade-in">
-              <h2 className="text-2xl font-bold mb-4">Downloads Disabled</h2>
-              <p className="text-muted-foreground">
-                All document download features have been removed from this technical section.
+              <p className="text-muted-foreground
               </p>
               <div className="flex justify-center mt-10">
                 <Link to="/safety">
