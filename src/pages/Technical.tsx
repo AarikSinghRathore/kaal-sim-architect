@@ -122,7 +122,7 @@ const Technical = () => {
                     Detailed system architecture diagrams showing the complete KAAL system
                     integration, data flow, and component interactions.
                   </p>
-                  <Button className="mt-auto">
+                  <Button className="mt-auto" onClick={() => window.open("https://drive.google.com/file/d/1puhfJ5VSebEozFuvTpdedzXCnDacXOQZ/view?usp=sharing", "_blank")}>
                     <Table className="h-4 w-4 mr-2" />
                     Download Architecture Diagram (PDF)
                   </Button>
