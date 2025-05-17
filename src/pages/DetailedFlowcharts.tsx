@@ -142,7 +142,7 @@ const DetailedFlowcharts = () => {
         <div className="flex justify-center mt-12">
           <div className="flex gap-4">
             <Link to="/technical">
-              <Button variant="outline">Back to Technical Documentation</Button>
+              <Button variant="outline">Back to Technical</Button>
             </Link>
             <Link to="/architecture">
               <Button variant="outline">View System Architecture</Button>

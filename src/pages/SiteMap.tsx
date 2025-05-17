@@ -56,7 +56,7 @@ const SiteMap = () => {
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 pl-5 list-disc">
                       <li><strong>Home Page</strong> - Overview and introduction to KAAL</li>
                       <li><strong>System Architecture</strong> - Detailed system design</li>
-                      <li><strong>Technical Documentation</strong> - Specifications and guides</li>
+                      <li><strong>Technical</strong> - Specifications and guides</li>
                       <li><strong>Terrain Engine</strong> - Simulation environment details</li>
                       <li><strong>Feedback System</strong> - Tactile response technology</li>
                       <li><strong>Safety Systems</strong> - Safety protocols and features</li>
@@ -152,7 +152,7 @@ const SiteMap = () => {
               <div className="kaal-card p-4">
                 <h4 className="font-medium mb-2">Finding Technical Details</h4>
                 <p className="text-sm text-muted-foreground">
-                  For in-depth technical information, visit the Technical Documentation page or explore the
+                  For in-depth technical information, visit the Technical page or explore the
                   specific system pages for detailed specifications and guides.
                 </p>
               </div>
@@ -169,7 +169,7 @@ const SiteMap = () => {
                 <h4 className="font-medium mb-2">Quick Reference</h4>
                 <p className="text-sm text-muted-foreground">
                   Use this site map as your central navigation hub to quickly find any information
-                  about Project KAAL's systems, features, or documentation.
+                  about Project KAAL's systems, features, or specifications.
                 </p>
               </div>
             </div>

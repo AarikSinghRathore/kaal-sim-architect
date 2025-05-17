@@ -20,7 +20,7 @@ import FlowchartContainer from "@/components/flowchart/FlowchartContainer";
 const Technical = () => {
   return (
     <Layout 
-      heroTitle="KAAL Technical Documentation" 
+      heroTitle="KAAL Technical" 
       heroSubtitle="Comprehensive System Architecture and Technical Specifications" 
       heroBackground="from-kaal-navy/90 to-black"
     >
@@ -44,8 +44,8 @@ const Technical = () => {
             </TabsTrigger>
             <TabsTrigger value="downloads" className="flex items-center gap-2">
               <FileText className="h-4 w-4" />
-              <span className="hidden sm:inline">Documentation</span>
-              <span className="sm:hidden">Docs</span>
+              <span className="hidden sm:inline">Resources</span>
+              <span className="sm:hidden">Resources</span>
             </TabsTrigger>
           </TabsList>
           
@@ -95,7 +95,7 @@ const Technical = () => {
           
           <TabsContent value="downloads">
             <div className="space-y-8 opacity-0 animate-fade-in">
-              <h2 className="text-2xl font-bold text-center">Technical Documentation</h2>
+              <h2 className="text-2xl font-bold text-center">Technical Resources</h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
                 <div className="kaal-card p-6 flex flex-col items-center">
