@@ -61,8 +61,6 @@ const Architecture = () => {
             </TabsTrigger>
             <TabsTrigger value="docs" className="flex items-center gap-2">
               <FileText className="h-4 w-4" />
-              <span className="hidden sm:inline">Documents</span>
-              <span className="sm:hidden">Docs</span>
             </TabsTrigger>
           </TabsList>
 
@@ -82,11 +80,6 @@ const Architecture = () => {
             <TerrainSimulation />
           </TabsContent>
 
-          <TabsContent value="docs">
-            <div className="text-center opacity-0 animate-fade-in">
-              <h2 className="text-2xl font-bold mb-4">Documentation Access Restricted</h2>
-              <p className="text-muted-foreground">
-                Document downloads have been disabled for this section.
               </p>
               <div className="flex justify-center gap-6 mt-10">
                 <Link to="/safety">
