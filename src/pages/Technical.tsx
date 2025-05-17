@@ -1,4 +1,3 @@
-
 import React from "react";
 import Layout from "@/components/layout/Layout";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -98,6 +97,7 @@ const Technical = () => {
               <h2 className="text-2xl font-bold text-center">Technical Resources</h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                {/* KAAL Whitepaper Card */}
                 <div className="kaal-card p-6 flex flex-col items-center">
                   <div className="w-16 h-16 rounded-full bg-kaal-blue/20 flex items-center justify-center mb-4">
                     <FileText className="h-8 w-8 text-kaal-blue" />
@@ -107,12 +107,20 @@ const Technical = () => {
                     Comprehensive technical whitepaper detailing the full KAAL system specifications,
                     research methodology, and implementation strategy.
                   </p>
-                  <Button className="mt-auto" onClick={() => window.open("https://drive.google.com/file/d/1puhfJ5VSebEozFuvTpdedzXCnDacXOQZ/view?usp=sharing", "_blank")}>
-                    <FileText className="h-4 w-4 mr-2" />
-                    Download Whitepaper (PDF)
-                  </Button>
+                  <a
+                    href="/downloads/KAAL_Whitepaper.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-auto w-full"
+                  >
+                    <Button className="w-full">
+                      <FileText className="h-4 w-4 mr-2" />
+                      Download Whitepaper (PDF)
+                    </Button>
+                  </a>
                 </div>
-                
+
+                {/* System Architecture Diagram Card */}
                 <div className="kaal-card p-6 flex flex-col items-center">
                   <div className="w-16 h-16 rounded-full bg-kaal-green/20 flex items-center justify-center mb-4">
                     <Table className="h-8 w-8 text-kaal-green" />
@@ -122,7 +130,15 @@ const Technical = () => {
                     Detailed system architecture diagrams showing the complete KAAL system
                     integration, data flow, and component interactions.
                   </p>
-                  <Button className="mt-auto" onClick={() => window.open("https://drive.google.com/file/d/1puhfJ5VSebEozFuvTpdedzXCnDacXOQZ/view?usp=sharing", "_blank")}>
+                  <Button
+                    className="mt-auto w-full"
+                    onClick={() =>
+                      window.open(
+                        "https://drive.google.com/file/d/1puhfJ5VSebEozFuvTpdedzXCnDacXOQZ/view?usp=sharing",
+                        "_blank"
+                      )
+                    }
+                  >
                     <Table className="h-4 w-4 mr-2" />
                     Download Architecture Diagram (PDF)
                   </Button>
